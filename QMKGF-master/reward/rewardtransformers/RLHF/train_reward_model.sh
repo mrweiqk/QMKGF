@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES="0" python train_reward_model.py \
+    --model "/QMKGF_master/model/ernie-3.0-base-zh" \
+    --train_path "/QMKGF_master/reward/rewardtransformers/RLHF/dataset_new/hotpotQA-noisy-0.2/hotpotQA-noisy0.2.txt" \
+    --dev_path "/QMKGF_master/reward/rewardtransformers/RLHF/dataset_new/hotpotQA-noisy-0.05/hotpotQA_output_20.txt" \
+    --save_dir "checkpoints/noisy-0.2" \
+    --img_log_dir "logs/noisy-0.2" \
+    --img_log_name "ERNIE Reward Model" \
+    --batch_size 4 \
+    --max_seq_len 512 \
+    --learning_rate 1e-5 \
+    --valid_steps 100 \
+    --logging_steps 10 \
+    --num_train_epochs 10 \
+    --device "cuda:0"
